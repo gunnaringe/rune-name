@@ -15,11 +15,7 @@ class ShortTwig {
         l: 'ᛚ',
         m: 'ᛙ',
         n: 'ᚿ',
-<<<<<<< HEAD
-        o: 'ᚢ',
-=======
         o: 'ᚮ',
->>>>>>> 1c3938d (Initial setup)
         p: 'ᛓ',
         q: 'ᚴ',
         r: 'ᚱ',
@@ -29,11 +25,7 @@ class ShortTwig {
         v: 'ᚠ',
         w: 'ᚠ',
         x: 'ᚴ',
-<<<<<<< HEAD
-        y: 'ᛌ',
-=======
         y: 'ᛣ',
->>>>>>> 1c3938d (Initial setup)
         z: 'ᛁ',
         æ: 'ᛆ',
         ø: 'ᚢ',
@@ -63,4 +55,3 @@ class ShortTwig {
         return outputText;
     }
 }
-
