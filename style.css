@@ -7,18 +7,19 @@ body {
 }
 
 .container {
-    max-width: 600px; /* Set the maximum width of the container */
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 20px; /* Add some padding */
-    background-color: #fff; /* Set the background color of the container */
-    border-radius: 10px; /* Add rounded corners to the container */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a box shadow to the container */
+    max-width: 1000px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    font-size: 50px; /* Set the font size */
-    margin-bottom: 20px; /* Add some space below the heading */
-    text-align: center; /* Center the heading */
+    font-size: 50px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 h2 {
@@ -28,31 +29,31 @@ h2 {
 }
 
 label {
-    display: block; /* Display each option on a new line */
-    margin-bottom: 10px; /* Add some space below each option */
+    display: block;
+    margin-bottom: 10px;
 }
 
 input[type="radio"] {
-    margin-right: 10px; /* Add some space between the radio button and the label */
+    margin-right: 10px;
 }
 
 input[type="text"] {
     font-family: 'Junicode', sans-serif;
     font-size: 40px;
-    display: block; /* Display the input field on a new line */
-    width: 100%; /* Set the width of the input field */
-    padding: 10px; /* Add some padding */
-    margin-bottom: 20px; /* Add some space below the input field */
-    border: 1px solid #ccc; /* Add a border */
-    border-radius: 5px; /* Add rounded corners */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
 .output {
     font-family: 'Junicode', sans-serif;
-    font-size: 40px; /* Set the font size */
-    font-weight: bold; /* Set the font weight */
-    margin-top: 20px; /* Add some space above the result */
-    text-align: center; /* Center the result */
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
     overflow-wrap: break-word;
 }
