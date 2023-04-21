@@ -1,39 +1,39 @@
 // Make class for holding the alphabet
-class ElderFuthark {
+class LongBranch {
     static map = {
-        a: 'ᚨ',
+        a: 'ᛅ',
         b: 'ᛒ',
-        c: 'ᚲ',
-        d: 'ᛞ',
-        e: 'ᛖ',
+        c: 'ᚴ',
+        d: 'ᛏ',
+        e: 'ᛁ',
         f: 'ᚠ',
-        g: 'ᚷ',
-        h: 'ᚺ',
+        g: 'ᚴ',
+        h: 'ᚼ',
         i: 'ᛁ',
-        j: 'ᛃ',
-        k: 'ᚲ',
+        j: 'ᛁ',
+        k: 'ᚴ',
         l: 'ᛚ',
-        m: 'ᛗ',
+        m: 'ᛘ',
         n: 'ᚾ',
-        o: 'ᛟ',
-        p: 'ᛈ',
-        q: 'ᚲ',
+        o: 'ᚯ',
+        p: 'ᛒ',
+        q: 'ᚴ',
         r: 'ᚱ',
-        s: 'ᛊ',
+        s: 'ᛋ',
         t: 'ᛏ',
         u: 'ᚢ',
-        v: 'ᚹ',
-        w: 'ᚹ',
-        x: 'ᚲᛊ',
-        y: 'ᛃ',
-        z: 'ᛉ',
-        æ: 'ᛅᛁ',
-        ø: 'ᛟᚢ',
-        å: 'ᛅ',
+        v: 'ᚠ',
+        w: 'ᚠ',
+        x: 'ᚴ',
+        y: 'ᛋ',
+        z: 'ᛁ',
+        æ: 'ᛅ',
+        ø: 'ᚢ',
+        å: 'ᚯ',
     };
 
     static replacements = {
-        "th": "ᚦ",
+        "th": "\u16A6",
     };
 
     static translate(input) {
@@ -55,4 +55,3 @@ class ElderFuthark {
         return outputText;
     }
 }
-

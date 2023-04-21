@@ -1,0 +1,15 @@
+{
+  "lang": "no-nb",
+  "name": "Runenavn",
+  "short_name": "Runenavn",
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/img/logo.png",
+      "sizes": "669x596"
+    }
+  ]
+}

@@ -4,6 +4,7 @@
     <title>Ditt navn i runer</title>
     <meta charset="UTF-8">
     <link href="https://fonts.cdnfonts.com/css/junicode-2" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -56,6 +57,11 @@
         elderFuthark.textContent = ElderFuthark.translate(inputText);
         longBranch.textContent = LongBranch.translate(inputText);
         shortTwig.textContent = ShortTwig.translate(inputText);
+    }
+</script>
+<script>
+    if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' });
     }
 </script>
 </body>
