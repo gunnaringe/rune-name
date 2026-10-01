@@ -182,10 +182,10 @@ svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-
     border-radius: calc(var(--radius) / 1.6);
     background: var(--accent);
     color: var(--on-accent);
-    font-family: var(--rune-font);
-    font-size: 1.4rem;
-    font-weight: 400;
 }
+/* Icon runes are drawn as SVG: rune glyphs sit high in their line box (no
+   descenders), so as text they never centre reliably across browsers. */
+.brand-rune svg { width: 1.5rem; height: 1.5rem; stroke-width: 2.4; }
 
 .icon-btn, .back {
     display: inline-flex;
@@ -290,12 +290,8 @@ svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-
 .notice[hidden] { display: none; }
 .notice p { margin: 0; flex: 1; }
 .notice a { font-weight: 600; white-space: nowrap; }
-.notice-rune {
-    font-family: var(--rune-font);
-    font-size: 1.5rem;
-    line-height: 1;
-    color: var(--accent);
-}
+.notice-rune { display: flex; flex-shrink: 0; color: var(--accent); }
+.notice-rune svg { width: 1.5rem; height: 1.5rem; }
 .icon-btn.small { padding: 0.35rem; border: 0; background: none; cursor: pointer; font: inherit; }
 
 .footer {
@@ -352,13 +348,15 @@ svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 8px;
-    font-family: "Junicode", serif;
-    font-size: 1.6rem;
     border: 1px solid rgba(128, 128, 128, 0.3);
 }
+.swatch { grid-auto-flow: column; }
+.swatch svg { width: 1.6rem; height: 1.6rem; stroke-width: 2.2; }
+.swatch svg + svg { margin-left: -0.7rem; }
 .swatch-normal { background: linear-gradient(135deg, #fff 50%, #0d1117 50%); color: #5b5bd6; }
-.swatch-hacker { color: #00ff41; background: #000; text-shadow: 0 0 6px rgba(0, 255, 65, 0.8); border-radius: 2px; }
-.swatch-plain { color: var(--text); background: var(--accent-soft); border-color: var(--border); font-size: 1.3rem; }
+.swatch-hacker { color: #00ff41; background: #000; border-radius: 2px; }
+.swatch-hacker svg { filter: drop-shadow(0 0 3px rgba(0, 255, 65, 0.7)); }
+.swatch-plain { color: var(--text); background: var(--accent-soft); border-color: var(--border); }
 .swatch-norse { color: #9c2f1f; background: #ead9b5; }
 
 /* ---------- Hacker theme ---------- */
