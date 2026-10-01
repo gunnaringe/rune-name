@@ -255,8 +255,11 @@ svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-
     min-height: 1.25em;
 }
 
-.copy {
+.share {
     flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     padding: 0.4rem 0.9rem;
     font: inherit;
     font-size: 0.85rem;
@@ -268,8 +271,32 @@ svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-
     cursor: pointer;
     transition: filter 0.15s;
 }
-.copy:hover { filter: brightness(1.1); }
-.copy.done { color: var(--on-accent); background: var(--accent); }
+.share:hover { filter: brightness(1.1); }
+.share.done { color: var(--on-accent); background: var(--accent); }
+.share svg { width: 1rem; height: 1rem; }
+
+/* Hint under the input when the name has double letters. */
+.notice {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin: -0.5rem 0 1.5rem;
+    padding: 0.6rem 0.6rem 0.6rem 0.9rem;
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) / 1.5);
+    font-size: 0.95rem;
+}
+.notice[hidden] { display: none; }
+.notice p { margin: 0; flex: 1; }
+.notice a { font-weight: 600; white-space: nowrap; }
+.notice-rune {
+    font-family: var(--rune-font);
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--accent);
+}
+.icon-btn.small { padding: 0.35rem; border: 0; background: none; cursor: pointer; font: inherit; }
 
 .footer {
     width: min(100% - 2rem, 52rem);
@@ -297,6 +324,9 @@ svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-
     text-transform: uppercase;
     color: var(--muted);
 }
+.choices .hint { clear: both; margin: -0.25rem 0.5rem 0.5rem; font-size: 0.9rem; color: var(--muted); }
+/* Arriving from the double-letters notice. */
+.choices:target { outline: 2px solid var(--accent); outline-offset: 3px; }
 .choice {
     display: flex;
     align-items: center;
@@ -328,13 +358,14 @@ svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-
 }
 .swatch-normal { background: linear-gradient(135deg, #fff 50%, #0d1117 50%); color: #5b5bd6; }
 .swatch-hacker { color: #00ff41; background: #000; text-shadow: 0 0 6px rgba(0, 255, 65, 0.8); border-radius: 2px; }
+.swatch-plain { color: var(--text); background: var(--accent-soft); border-color: var(--border); font-size: 1.3rem; }
 .swatch-norse { color: #9c2f1f; background: #ead9b5; }
 
 /* ---------- Hacker theme ---------- */
 
 /* VT323 has one weight; faux bold smears its pixels. */
 [data-theme="hacker"] body { text-shadow: 0 0 6px rgba(0, 255, 65, 0.45); font-synthesis: none; }
-[data-theme="hacker"] :is(h1, h2, strong, .brand, .copy, label, legend) { font-weight: 400; }
+[data-theme="hacker"] :is(h1, h2, strong, .brand, .share, label, legend) { font-weight: 400; }
 [data-theme="hacker"] body { font-size: 1.1rem; }
 /* CRT scan lines over everything, with a brief flicker every few seconds. */
 [data-theme="hacker"] body::after {
@@ -366,10 +397,14 @@ svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-
 [data-theme="hacker"] .input-card label::before { content: "$ "; }
 [data-theme="hacker"] .input-card input { caret-color: var(--accent); }
 [data-theme="hacker"] .runes { text-shadow: 0 0 10px rgba(0, 255, 65, 0.6); font-weight: 400; }
-[data-theme="hacker"] :is(.icon-btn, .back, .copy) { border-radius: 2px; }
-[data-theme="hacker"] .copy { border: 1px solid var(--border); background: transparent; }
-[data-theme="hacker"] .copy::before { content: "["; }
-[data-theme="hacker"] .copy::after { content: "]"; }
+[data-theme="hacker"] :is(.icon-btn, .back, .share) { border-radius: 2px; }
+[data-theme="hacker"] .share { border: 1px solid var(--border); background: transparent; }
+[data-theme="hacker"] .share svg { display: none; }
+[data-theme="hacker"] .share span::before { content: "["; }
+[data-theme="hacker"] .share span::after { content: "]"; }
+[data-theme="hacker"] .notice { border-radius: 2px; }
+[data-theme="hacker"] .notice-rune { display: none; }
+[data-theme="hacker"] .notice p::before { content: "! "; color: var(--accent); }
 
 /* ---------- Norse theme ---------- */
 
@@ -390,7 +425,7 @@ svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-
 [data-theme="norse"] .note { font-style: italic; }
 [data-theme="norse"] .tagline { font-style: italic; }
 [data-theme="norse"] .runes { font-weight: 600; letter-spacing: 0.04em; }
-[data-theme="norse"] .copy { border: 1px solid var(--accent); }
+[data-theme="norse"] .share { border: 1px solid var(--accent); }
 
 [data-theme="norse"] .scene {
     display: block;

@@ -104,6 +104,17 @@
                data-i18n-placeholder="placeholder" placeholder="Skriv inn navnet ditt her…">
     </div>
 
+    <div class="notice" id="doubles-notice" role="status" hidden>
+        <span class="notice-rune" aria-hidden="true">ᚾ</span>
+        <p>
+            <span data-i18n="doublesNotice"></span>
+            <a href="settings.html#doubles" data-i18n="doublesNoticeLink"></a>
+        </p>
+        <button class="icon-btn small" type="button" id="doubles-dismiss" data-i18n-aria="dismiss">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+    </div>
+
     <section class="results">
         <article class="card result">
             <header>
@@ -111,7 +122,7 @@
                     <h2 data-i18n="longBranch"></h2>
                     <p class="note" data-i18n="longBranchNote"></p>
                 </div>
-                <button class="copy" type="button" data-target="long-branch" data-i18n="copy"></button>
+                <button class="share" type="button" data-target="long-branch"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span data-i18n="share"></span></button>
             </header>
             <p class="runes" id="long-branch" lang="und-Runr"></p>
         </article>
@@ -122,7 +133,7 @@
                     <h2 data-i18n="shortTwig"></h2>
                     <p class="note" data-i18n="shortTwigNote"></p>
                 </div>
-                <button class="copy" type="button" data-target="short-twig" data-i18n="copy"></button>
+                <button class="share" type="button" data-target="short-twig"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span data-i18n="share"></span></button>
             </header>
             <p class="runes" id="short-twig" lang="und-Runr"></p>
         </article>
@@ -133,7 +144,7 @@
                     <h2 data-i18n="elderFuthark"></h2>
                     <p class="note" data-i18n="elderFutharkNote"></p>
                 </div>
-                <button class="copy" type="button" data-target="elder-futhark" data-i18n="copy"></button>
+                <button class="share" type="button" data-target="elder-futhark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span data-i18n="share"></span></button>
             </header>
             <p class="runes" id="elder-futhark" lang="und-Runr"></p>
         </article>
