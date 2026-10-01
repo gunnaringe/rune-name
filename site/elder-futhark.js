@@ -42,7 +42,7 @@ class ElderFuthark {
         input = input.toLowerCase();
         // Replace all instances of "th" with "ᚦ"
         for (const [key, value] of Object.entries(this.replacements)) {
-            input = input.replace(key, value);
+            input = input.replaceAll(key, value);
         }
         // Replace each letter with their rune equivalent
         for (const letter of input) {

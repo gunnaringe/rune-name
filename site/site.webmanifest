@@ -1,11 +1,11 @@
 {
   "id": "runenavn.cc",
-  "lang": "no-nb",
+  "lang": "nb",
   "name": "Runenavn",
   "short_name": "Runenavn",
   "start_url": "/",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#f5f6fa",
+  "theme_color": "#5b5bd6",
   "display": "standalone",
   "icons": [
     {

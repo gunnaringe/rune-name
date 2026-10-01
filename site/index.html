@@ -1,76 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="nb" data-title="appTitle">
 <head>
-    <title>Ditt navn i runer</title>
     <meta charset="UTF-8">
-    <link href="https://fonts.cdnfonts.com/css/junicode-2" rel="stylesheet">
-    <link rel="manifest" href="manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="description" content="Skriv navnet ditt og se det skrevet med runer.">
+    <title>Ditt navn i runer</title>
+    <meta name="theme-color" content="#f5f6fa">
     <link rel="stylesheet" href="style.css">
-
+    <link rel="preload" href="fonts/junicode-runic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#00aba9">
-    <meta name="theme-color" content="#ffffff">
+    <script src="theme.js"></script>
 </head>
 <body>
-<a href="https://github.com/gunnaringe/rune-name" target="_blank" rel="noopener">
-    <img style="position:fixed;top:0;right:0;border:0;z-index:99999"
-         src="data:image/png;base64,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"
-         alt="Fork me on GitHub">
-</a>
+<header class="topbar">
+    <a class="brand" href="./"><span class="brand-rune" aria-hidden="true">ᚱ</span><span data-i18n="appTitle">Ditt navn i runer</span></a>
+    <a class="icon-btn" href="settings.html" data-i18n-aria="settings" aria-label="Innstillinger">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+    </a>
+</header>
 
-<h1>Ditt navn i runer</h1>
+<main class="wrap">
+    <!-- Only shown in the Norse theme. Colours come from CSS variables. -->
+    <svg class="scene" viewBox="0 0 400 190" aria-hidden="true">
+        <defs>
+            <linearGradient id="fade-grad">
+                <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="0.18" stop-color="#fff"/>
+                <stop offset="0.82" stop-color="#fff"/>
+                <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+            </linearGradient>
+            <mask id="fade" maskUnits="userSpaceOnUse" x="0" y="0" width="400" height="190">
+                <rect width="400" height="190" fill="url(#fade-grad)"/>
+            </mask>
+            <clipPath id="sail-clip"><path d="M146 44 L234 44 Q242 80 233 112 L147 112 Q138 80 146 44 Z"/></clipPath>
+        </defs>
+        <circle class="sun" cx="335" cy="42" r="22"/>
+        <path class="gull" d="M60 40 q6 -6 12 0 q6 -6 12 0"/>
+        <path class="gull" d="M95 26 q4 -4 8 0 q4 -4 8 0"/>
+        <g mask="url(#fade)"><g class="wave wave-back">
+            <path d="M-40 158 q20 -10 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 V190 H-40 Z"/>
+        </g></g>
+        <g class="ship">
+            <g class="oars">
+                <path d="M112 140 L92 170"/><path d="M146 142 L126 172"/><path d="M180 143 L160 173"/>
+                <path d="M214 143 L194 173"/><path d="M262 142 L242 172"/><path d="M296 140 L276 170"/>
+            </g>
+            <path class="mast" d="M188 32 h4 v102 h-4 Z"/>
+            <path class="yard" d="M138 42 L242 42"/>
+            <path class="rope" d="M190 34 L330 118 M190 34 L76 118"/>
+            <g clip-path="url(#sail-clip)">
+                <rect class="sail-a" x="130" y="40" width="120" height="80"/>
+                <rect class="sail-b" x="148" y="40" width="14" height="80"/>
+                <rect class="sail-b" x="176" y="40" width="14" height="80"/>
+                <rect class="sail-b" x="204" y="40" width="14" height="80"/>
+                <rect class="sail-b" x="232" y="40" width="14" height="80"/>
+            </g>
+            <g class="viking" transform="translate(250 134) scale(1.35) translate(-245 -134)">
+                <path class="arm" d="M255 108 L270 92"/>
+                <circle class="skin" cx="271" cy="90" r="3.5"/>
+                <path class="tunic" d="M232 134 L234 106 Q245 98 256 106 L258 134 Z"/>
+                <path class="belt" d="M233 120 H257"/>
+                <circle class="skin" cx="245" cy="89" r="9"/>
+                <path class="helmet" d="M235 87 A10 10 0 0 1 255 87 Z"/>
+                <path class="helmet" d="M244 86 h2 v8 h-2 Z"/>
+                <circle class="eye" cx="241.5" cy="90" r="1.1"/>
+                <circle class="eye" cx="248.5" cy="90" r="1.1"/>
+                <path class="beard" d="M235 91 Q236 104 241 112 L245 120 L249 112 Q254 104 255 91 Q251 97 245 96 Q239 97 235 91 Z"/>
+                <path class="mustache" d="M239 96 Q245 92 251 96"/>
+            </g>
+            <path class="hull" d="M78 130 L322 130 C320 150 302 163 272 165 L128 165 C98 163 80 150 78 130 Z"/>
+            <path class="strake" d="M86 146 Q200 160 314 146"/>
+            <path class="prow" d="M318 134 C338 126 348 106 342 86 C339 76 352 68 360 78 C362 82 358 86 354 84"/>
+            <path class="prow" d="M82 134 C62 126 54 108 62 92 C66 84 58 78 54 86"/>
+            <circle class="eye" cx="352" cy="77" r="1.3"/>
+            <g class="shields">
+                <circle cx="104" cy="132" r="10"/><circle cx="130" cy="133" r="10" class="alt"/>
+                <circle cx="156" cy="134" r="10"/><circle cx="182" cy="134" r="10" class="alt"/>
+                <circle cx="208" cy="134" r="10"/><circle cx="234" cy="134" r="10" class="alt"/>
+                <circle cx="260" cy="134" r="10"/><circle cx="286" cy="133" r="10" class="alt"/>
+            </g>
+            <g class="bosses">
+                <circle cx="104" cy="132" r="2.5"/><circle cx="130" cy="133" r="2.5"/><circle cx="156" cy="134" r="2.5"/>
+                <circle cx="182" cy="134" r="2.5"/><circle cx="208" cy="134" r="2.5"/><circle cx="234" cy="134" r="2.5"/>
+                <circle cx="260" cy="134" r="2.5"/><circle cx="286" cy="133" r="2.5"/>
+            </g>
+        </g>
+        <g mask="url(#fade)"><g class="wave wave-front">
+            <path d="M-40 170 q20 -9 40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 t40 0 V190 H-40 Z"/>
+        </g></g>
+    </svg>
 
-<div class="container">
-    <label for="input-text"></label>
-    <input id="input-text" type="text" name="input" placeholder="Skriv inn navnet ditt her...">
+    <p class="tagline" data-i18n="tagline"></p>
 
-    <h2>Langkvistruner / normalruner</h2>
-    <span class="output" id="long-branch"></span>
+    <div class="card input-card">
+        <label for="input-text" data-i18n="inputLabel">Navnet ditt</label>
+        <input id="input-text" type="text" name="input" autocomplete="off" spellcheck="false"
+               data-i18n-placeholder="placeholder" placeholder="Skriv inn navnet ditt her…">
+    </div>
 
-    <h2>Kortkvistruner / stuttruner</h2>
-    <span class="output" id="short-twig"></span>
+    <section class="results">
+        <article class="card result">
+            <header>
+                <div>
+                    <h2 data-i18n="longBranch"></h2>
+                    <p class="note" data-i18n="longBranchNote"></p>
+                </div>
+                <button class="copy" type="button" data-target="long-branch" data-i18n="copy"></button>
+            </header>
+            <p class="runes" id="long-branch" lang="und-Runr"></p>
+        </article>
 
-    <h2>Den eldre futhark</h2>
-    <span class="output" id="elder-futhark"></span>
-</div>
+        <article class="card result">
+            <header>
+                <div>
+                    <h2 data-i18n="shortTwig"></h2>
+                    <p class="note" data-i18n="shortTwigNote"></p>
+                </div>
+                <button class="copy" type="button" data-target="short-twig" data-i18n="copy"></button>
+            </header>
+            <p class="runes" id="short-twig" lang="und-Runr"></p>
+        </article>
 
+        <article class="card result">
+            <header>
+                <div>
+                    <h2 data-i18n="elderFuthark"></h2>
+                    <p class="note" data-i18n="elderFutharkNote"></p>
+                </div>
+                <button class="copy" type="button" data-target="elder-futhark" data-i18n="copy"></button>
+            </header>
+            <p class="runes" id="elder-futhark" lang="und-Runr"></p>
+        </article>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>
+        <span data-i18n="sources"></span>:
+        <a href="https://www.vikingrune.com/" rel="noopener">vikingrune.com</a> ·
+        <a href="https://en.wikipedia.org/wiki/Runic_(Unicode_block)" rel="noopener">Wikipedia</a> ·
+        <a href="https://www.norron-mytologi.info/diverse/runeskrift.htm" rel="noopener">norron-mytologi.info</a>
+    </p>
+    <p>
+        <span data-i18n="foundError"></span>
+        <a href="https://github.com/gunnaringe/rune-name" rel="noopener" data-i18n="sourceCode"></a>
+    </p>
+</footer>
+
+<script src="i18n.js"></script>
 <script src="long-branch.js"></script>
 <script src="short-twig.js"></script>
 <script src="elder-futhark.js"></script>
-<script>
-    const inputElement = document.getElementById('input-text');
-    const elderFuthark = document.getElementById('elder-futhark');
-    const longBranch = document.getElementById('long-branch');
-    const shortTwig = document.getElementById('short-twig');
-
-    update();
-
-    inputElement.addEventListener('input', () => {
-        update();
-    });
-
-    function update() {
-        let inputText = inputElement.value;
-        // Replace space with double space
-        inputText = inputText.replace(/ /g, '  ');
-
-        if (inputText.length === 0) {
-            inputText = 'Futhark';
-        }
-
-        elderFuthark.textContent = ElderFuthark.translate(inputText);
-        longBranch.textContent = LongBranch.translate(inputText);
-        shortTwig.textContent = ShortTwig.translate(inputText);
-    }
-</script>
-<script>
-    if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js', { scope: '/' });
-    }
-</script>
+<script src="app.js"></script>
 </body>
 </html>

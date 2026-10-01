@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="nb" data-title="settingsTitle">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Innstillinger · Ditt navn i runer</title>
+    <meta name="theme-color" content="#f5f6fa">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <script src="theme.js"></script>
+</head>
+<body>
+<header class="topbar narrow">
+    <a class="back" href="./">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        <span data-i18n="back">Tilbake</span>
+    </a>
+    <h1 class="brand" data-i18n="settings">Innstillinger</h1>
+</header>
+
+<main class="wrap narrow">
+    <fieldset class="card choices" id="theme">
+        <legend data-i18n="theme"></legend>
+        <label class="choice">
+            <input type="radio" name="theme" value="normal">
+            <span class="swatch swatch-normal" aria-hidden="true">ᚱ</span>
+            <span><strong data-i18n="themeNormal"></strong><small data-i18n="themeNormalHint"></small></span>
+        </label>
+        <label class="choice">
+            <input type="radio" name="theme" value="hacker">
+            <span class="swatch swatch-hacker" aria-hidden="true">ᚱ</span>
+            <span><strong data-i18n="themeHacker"></strong><small data-i18n="themeHackerHint"></small></span>
+        </label>
+        <label class="choice">
+            <input type="radio" name="theme" value="norse">
+            <span class="swatch swatch-norse" aria-hidden="true">ᚱ</span>
+            <span><strong data-i18n="themeNorse"></strong><small data-i18n="themeNorseHint"></small></span>
+        </label>
+    </fieldset>
+
+    <fieldset class="card choices" id="lang">
+        <legend data-i18n="language"></legend>
+        <label class="choice">
+            <input type="radio" name="lang" value="auto">
+            <span><strong data-i18n="langAuto"></strong><small data-i18n="langAutoHint"></small></span>
+        </label>
+        <label class="choice" lang="nb">
+            <input type="radio" name="lang" value="nb">
+            <span><strong>Norsk bokmål</strong></span>
+        </label>
+        <label class="choice" lang="nn">
+            <input type="radio" name="lang" value="nn">
+            <span><strong>Norsk nynorsk</strong></span>
+        </label>
+        <label class="choice" lang="en">
+            <input type="radio" name="lang" value="en">
+            <span><strong>English</strong></span>
+        </label>
+    </fieldset>
+</main>
+
+<script src="i18n.js"></script>
+<script src="settings.js"></script>
+</body>
+</html>
