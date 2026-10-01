@@ -27,20 +27,21 @@ class ElderFuthark {
         x: 'ᚲᛊ',
         y: 'ᛃ',
         z: 'ᛉ',
-        æ: 'ᛅᛁ',
-        ø: 'ᛟᚢ',
-        å: 'ᛅ',
+        æ: 'ᛖ',
+        ø: 'ᛟ',
+        å: 'ᚨ',
     };
 
     static replacements = {
         "th": "ᚦ",
+        "ng": "ᛜ",
     };
 
     static translate(input) {
         let outputText = '';
         // Make input lowercase
         input = input.toLowerCase();
-        // Replace all instances of "th" with "ᚦ"
+        // Letter pairs with a rune of their own, like "th" -> "ᚦ"
         for (const [key, value] of Object.entries(this.replacements)) {
             input = input.replaceAll(key, value);
         }
