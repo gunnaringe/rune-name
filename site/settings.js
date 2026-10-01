@@ -1,5 +1,5 @@
 // Settings live in localStorage: `theme` ("normal"/"hacker"/"norse") and
-// `lang` ("auto"/"nb"/"nn"/"en"). Changes apply immediately, here and in any
+// `lang` ("auto"/"nb"/"nn"/"is"/"en"). Changes apply immediately, here and in any
 // other open tab (via the storage event).
 const DEFAULTS = { theme: 'normal', lang: 'auto' };
 

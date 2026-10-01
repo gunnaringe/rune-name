@@ -17,7 +17,7 @@ Plain HTML/CSS/JS in `site/`, no build step. Serve it locally with
 - `index.html` + `app.js` — the translator; alphabets in `long-branch.js`,
   `short-twig.js`, `elder-futhark.js`.
 - `settings.html` + `settings.js` — theme and language, stored in
-  `localStorage` (`theme`: `normal`/`hacker`/`norse`, `lang`: `auto`/`nb`/`nn`/`en`).
+  `localStorage` (`theme`: `normal`/`hacker`/`norse`, `lang`: `auto`/`nb`/`nn`/`is`/`en`).
 - `i18n.js` — all UI strings, wired via `data-i18n` attributes.
 - `theme.js` — loaded in `<head>` so the theme applies before first paint.
 - `sw.js` — network-first offline support. Must stay at `/sw.js`.

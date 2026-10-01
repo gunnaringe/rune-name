@@ -66,6 +66,38 @@ const I18N = {
         langAuto: 'Automatisk',
         langAutoHint: 'Som nettlesaren din',
     },
+    is: {
+        appTitle: 'Nafnið þitt með rúnum',
+        tagline: 'Skrifaðu nafnið þitt og sjáðu það ritað eins og víkingarnir gerðu.',
+        inputLabel: 'Nafnið þitt',
+        placeholder: 'Skrifaðu nafnið þitt hér…',
+        longBranch: 'Langkvistarúnir',
+        longBranchNote: 'Einnig kallaðar danskar rúnir. Yngri rúnaröðin, notuð á víkingaöld (um 800–1100).',
+        shortTwig: 'Stuttkvistarúnir',
+        shortTwigNote: 'Einnig kallaðar sænsk-norskar rúnir. Fljótlegri að rista, algengar í Noregi og Svíþjóð.',
+        elderFuthark: 'Eldri rúnaröðin',
+        elderFutharkNote: 'Elsta rúnastafrófið, notað um 150–800 e.Kr.',
+        copy: 'Afrita',
+        copied: 'Afritað!',
+        copyFailed: 'Ekki tókst að afrita',
+        sources: 'Heimildir',
+        sourceCode: 'Frumkóði á GitHub',
+        foundError: 'Fannstu villu? Láttu mig endilega vita.',
+
+        settings: 'Stillingar',
+        settingsTitle: 'Stillingar · Nafnið þitt með rúnum',
+        back: 'Til baka',
+        theme: 'Útlit',
+        themeNormal: 'Venjulegt',
+        themeNormalHint: 'Ljóst eða dökkt, eins og tækið þitt',
+        themeHacker: 'Hakkari',
+        themeHackerHint: 'Grænn skjár',
+        themeNorse: 'Norrænt',
+        themeNorseHint: 'Bókfell, skegg og langskip',
+        language: 'Tungumál',
+        langAuto: 'Sjálfvirkt',
+        langAutoHint: 'Eins og vafrinn þinn',
+    },
     en: {
         appTitle: 'Your name in runes',
         tagline: 'Type your name and see it written the way the Vikings did.',
@@ -100,7 +132,7 @@ const I18N = {
     },
 };
 
-// Stored choice: "auto" (default), "nb", "nn" or "en". Auto picks the first
+// Stored choice: "auto" (default), "nb", "nn", "is" or "en". Auto picks the first
 // of those the browser prefers ("no" counts as Bokmål), and English otherwise.
 function currentLang() {
     const stored = localStorage.getItem('lang');
@@ -109,6 +141,7 @@ function currentLang() {
         const code = l.toLowerCase();
         if (code.startsWith('nn')) return 'nn';
         if (code.startsWith('nb') || code.startsWith('no')) return 'nb';
+        if (code.startsWith('is')) return 'is';
         if (code.startsWith('en')) return 'en';
     }
     return 'en';
