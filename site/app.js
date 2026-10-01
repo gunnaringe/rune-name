@@ -44,34 +44,23 @@ document.getElementById('doubles-dismiss').addEventListener('click', () => {
     inputElement.focus();
 });
 
-// A link that opens the page with the name filled in.
-function shareUrl() {
-    const url = new URL(location.origin + location.pathname);
-    const name = inputElement.value.trim();
-    if (name) url.searchParams.set('n', name);
-    return url.href;
-}
-
-// The system share sheet where there is one (phones, mostly); otherwise the
-// runes and the link go to the clipboard.
+// Shares just the name in runes: the system share sheet where there is one
+// (phones, mostly), otherwise the clipboard.
 for (const button of document.querySelectorAll('.share')) {
     const label = button.querySelector('span');
     let timer;
     button.addEventListener('click', async () => {
-        const runes = document.getElementById(button.dataset.target).textContent;
-        const url = shareUrl();
-        const name = inputElement.value.trim() || 'Futhark';
-        const data = { title: t('shareTitle', { name }), text: runes, url };
-        if (navigator.share && navigator.canShare?.(data) !== false) {
+        const text = document.getElementById(button.dataset.target).textContent;
+        if (navigator.share && navigator.canShare?.({ text }) !== false) {
             try {
-                await navigator.share(data);
+                await navigator.share({ text });
             } catch {
                 // Cancelled by the user, or not allowed. Nothing to report.
             }
             return;
         }
         try {
-            await navigator.clipboard.writeText(`${runes}\n${url}`);
+            await navigator.clipboard.writeText(text);
             label.textContent = t('copied');
             button.classList.add('done');
         } catch {
@@ -85,7 +74,7 @@ for (const button of document.querySelectorAll('.share')) {
     });
 }
 
-// A shared link fills in its name. Otherwise the name typed earlier in this
+// A link with ?n=<name> fills in that name. Otherwise the name typed earlier in this
 // tab comes back, e.g. after a trip to the settings page.
 const shared = new URLSearchParams(location.search).get('n');
 inputElement.value = (shared ?? sessionStorage.getItem('name') ?? '').slice(0, 100);
