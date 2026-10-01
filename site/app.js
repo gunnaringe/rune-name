@@ -74,13 +74,25 @@ for (const button of document.querySelectorAll('.share')) {
     });
 }
 
-// A link with ?n=<name> fills in that name. Otherwise the name typed earlier in this
-// tab comes back, e.g. after a trip to the settings page.
+// The name lives in the address bar as ?n=<name>, so the URL can be copied
+// and shared. replaceState keeps typing out of the back-button history.
+function syncUrl() {
+    const url = new URL(location.href);
+    const name = inputElement.value.trim();
+    if (name) url.searchParams.set('n', name);
+    else url.searchParams.delete('n');
+    if (url.href !== location.href) history.replaceState(null, '', url);
+}
+
+// A link with ?n=<name> fills in that name. Otherwise the name typed earlier
+// in this tab comes back, e.g. after a trip to the settings page.
 const shared = new URLSearchParams(location.search).get('n');
 inputElement.value = (shared ?? sessionStorage.getItem('name') ?? '').slice(0, 100);
+syncUrl();
 
 inputElement.addEventListener('input', () => {
     sessionStorage.setItem('name', inputElement.value);
+    syncUrl();
     update();
 });
 addEventListener('storage', update);
