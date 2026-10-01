@@ -100,8 +100,8 @@ const I18N = {
     },
 };
 
-// Stored choice: "auto" (default), "nb", "nn" or "en". Auto picks Nynorsk or
-// English when the browser prefers them, and Bokmål otherwise.
+// Stored choice: "auto" (default), "nb", "nn" or "en". Auto picks the first
+// of those the browser prefers ("no" counts as Bokmål), and English otherwise.
 function currentLang() {
     const stored = localStorage.getItem('lang');
     if (I18N[stored]) return stored;
@@ -111,11 +111,11 @@ function currentLang() {
         if (code.startsWith('nb') || code.startsWith('no')) return 'nb';
         if (code.startsWith('en')) return 'en';
     }
-    return 'nb';
+    return 'en';
 }
 
 function t(key, vars) {
-    let s = I18N[currentLang()][key] ?? I18N.nb[key] ?? key;
+    let s = I18N[currentLang()][key] ?? I18N.en[key] ?? key;
     if (vars) for (const k in vars) s = s.replace('{' + k + '}', vars[k]);
     return s;
 }
