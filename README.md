@@ -17,7 +17,7 @@ Plain HTML/CSS/JS in `site/`, no build step. Serve it locally with
 - `index.html` + `app.js` — the translator; alphabets in `long-branch.js`,
   `short-twig.js`, `elder-futhark.js`.
 - `settings.html` + `settings.js` — settings, stored in `localStorage`:
-  `theme` (`normal`/`hacker`/`norse`), `doubles` (`both`/`once`: write double
+  `theme` (`norse` (default)/`normal`/`hacker`), `doubles` (`both`/`once`: write double
   letters once, like on the rune stones) and `lang` (`auto`/`nb`/`nn`/`is`/`en`).
 - Share links are `/?n=<name>`; the page opens with the name filled in.
 - `i18n.js` — all UI strings, wired via `data-i18n` attributes.

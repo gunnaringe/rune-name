@@ -4,8 +4,8 @@
   "name": "Runenavn",
   "short_name": "Runenavn",
   "start_url": "/",
-  "background_color": "#f5f6fa",
-  "theme_color": "#5b5bd6",
+  "background_color": "#ead9b5",
+  "theme_color": "#9c2f1f",
   "display": "standalone",
   "icons": [
     {

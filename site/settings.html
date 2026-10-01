@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
     <title>Innstillinger · Ditt navn i runer</title>
-    <meta name="theme-color" content="#f5f6fa">
+    <meta name="theme-color" content="#ead9b5">
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -26,6 +26,11 @@
     <fieldset class="card choices" id="theme">
         <legend data-i18n="theme"></legend>
         <label class="choice">
+            <input type="radio" name="theme" value="norse">
+            <span class="swatch swatch-norse" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.5 3v18M8.5 3l7 4.5-7 4.5 7 9"/></svg></span>
+            <span><strong data-i18n="themeNorse"></strong><small data-i18n="themeNorseHint"></small></span>
+        </label>
+        <label class="choice">
             <input type="radio" name="theme" value="normal">
             <span class="swatch swatch-normal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.5 3v18M8.5 3l7 4.5-7 4.5 7 9"/></svg></span>
             <span><strong data-i18n="themeNormal"></strong><small data-i18n="themeNormalHint"></small></span>
@@ -34,11 +39,6 @@
             <input type="radio" name="theme" value="hacker">
             <span class="swatch swatch-hacker" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.5 3v18M8.5 3l7 4.5-7 4.5 7 9"/></svg></span>
             <span><strong data-i18n="themeHacker"></strong><small data-i18n="themeHackerHint"></small></span>
-        </label>
-        <label class="choice">
-            <input type="radio" name="theme" value="norse">
-            <span class="swatch swatch-norse" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.5 3v18M8.5 3l7 4.5-7 4.5 7 9"/></svg></span>
-            <span><strong data-i18n="themeNorse"></strong><small data-i18n="themeNorseHint"></small></span>
         </label>
     </fieldset>
 

@@ -1,7 +1,7 @@
-// Settings live in localStorage: `theme` ("normal"/"hacker"/"norse"),
+// Settings live in localStorage: `theme` ("norse"/"normal"/"hacker"),
 // `doubles` ("both"/"once") and `lang` ("auto"/"nb"/"nn"/"is"/"en"). Changes apply immediately, here and in any
 // other open tab (via the storage event).
-const DEFAULTS = { theme: 'normal', doubles: 'both', lang: 'auto' };
+const DEFAULTS = { theme: 'norse', doubles: 'both', lang: 'auto' };
 
 function render() {
     for (const [key, fallback] of Object.entries(DEFAULTS)) {
