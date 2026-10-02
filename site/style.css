@@ -460,15 +460,29 @@ svg { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-
 .scene .shields circle.alt { fill: var(--shield-b); }
 .scene .bosses circle { fill: var(--boss); }
 
-/* Gentle rocking; skipped for people who prefer less motion. */
+/* Gentle rocking; skipped for people who prefer less motion. The boat bobs
+   and sways on different periods so the motion never visibly repeats. The
+   waves repeat every 80 units (a crest and a trough), so sliding exactly that
+   far loops seamlessly. */
 @media (prefers-reduced-motion: no-preference) {
-    .scene .ship { transform-box: fill-box; transform-origin: 50% 80%; animation: rock 5s ease-in-out infinite; }
-    .scene .wave-back { animation: drift 7s linear infinite; }
-    .scene .wave-front { animation: drift 5s linear infinite reverse; }
+    .scene .ship {
+        transform-box: fill-box;
+        transform-origin: 50% 80%;
+        animation: bob 4.6s ease-in-out infinite, sway 7.3s ease-in-out infinite;
+    }
+    .scene .wave-back { animation: drift 16s linear infinite; }
+    .scene .wave-front { animation: drift 11s linear infinite reverse; }
 }
-@keyframes rock {
-    0%, 100% { transform: translateY(0) rotate(-1.2deg); }
-    50% { transform: translateY(3px) rotate(1.2deg); }
+@keyframes bob {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 3px; }
 }
-@keyframes drift { to { transform: translateX(40px); } }
+@keyframes sway {
+    0%, 100% { rotate: -1.2deg; }
+    50% { rotate: 1.2deg; }
+}
+@keyframes drift {
+    from { transform: translateX(0); }
+    to { transform: translateX(80px); }
+}
 
